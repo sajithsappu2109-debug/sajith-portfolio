@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sajith S | Portfolio</title>
+  <meta name="description" content="Portfolio of Sajith S - Second Year KGCAS Student, Java Developer from Mettupalayam, India.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Interactive Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo" aria-label="Sajith S Home">
+        <span class="logo-symbol">&lt;</span>
+        <span class="logo-text">Sajith<span class="logo-accent">.S</span></span>
+        <span class="logo-symbol">/&gt;</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#home" class="nav-link active" data-nav="home">
+              <span class="nav-dot"></span>
+              Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#projects" class="nav-link" data-nav="projects">
+              <span class="nav-dot"></span>
+              Projects
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link" data-nav="contact">
+              <span class="nav-dot"></span>
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions (GitHub, Theme Toggle, Mobile Menu) -->
+      <div class="nav-actions">
+        <!-- GitHub Integration Button -->
+        <a href="https://github.com/sajithsappu2109-debug?tab=repositories" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="github-nav-btn"
+           title="View Sajith's Repositories on GitHub">
+          <svg class="icon-github" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span class="github-btn-text">GitHub</span>
+          <span class="external-icon">↗</span>
+        </a>
+
+        <!-- Theme Toggle Switch -->
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Color Theme" title="Toggle Dark/Light Mode">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Open mobile menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-content">
+      <ul class="drawer-list">
+        <li><a href="#home" class="drawer-link active" data-nav="home">Home</a></li>
+        <li><a href="#projects" class="drawer-link" data-nav="projects">Projects</a></li>
+        <li><a href="#contact" class="drawer-link" data-nav="contact">Contact</a></li>
+      </ul>
+      <div class="drawer-footer">
+        <a href="https://github.com/sajithsappu2109-debug?tab=repositories" target="_blank" rel="noopener noreferrer" class="drawer-github-btn">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          Visit GitHub Repositories
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==================== HOME SECTION ==================== -->
+    <section id="home" class="section home-section">
+      <div class="container hero-container">
+        <!-- Hero Text & Bio Content -->
+        <div class="hero-content reveal-on-scroll">
+          <div class="badge-status">
+            <span class="status-pulse"></span>
+            <span class="status-text">Open to Collaboration & Learning</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text">Sajith S</span>
+          </h1>
+
+          <div class="typewriter-container">
+            <span class="type-prefix">I am a</span>
+            <span class="typed-text" id="typed-text"></span>
+            <span class="cursor">&nbsp;</span>
+          </div>
+
+          <!-- Academic & Location Highlights -->
+          <div class="meta-badges">
+            <div class="meta-chip">
+              <span class="chip-icon">🎓</span>
+              <div class="chip-info">
+                <span class="chip-label">Institution</span>
+                <span class="chip-val">KGCAS Student</span>
+              </div>
+            </div>
+
+            <div class="meta-chip">
+              <span class="chip-icon">📚</span>
+              <div class="chip-info">
+                <span class="chip-label">Academic Year</span>
+                <span class="chip-val">Second Year</span>
+              </div>
+            </div>
+
+            <div class="meta-chip">
+              <span class="chip-icon">📍</span>
+              <div class="chip-info">
+                <span class="chip-label">Location</span>
+                <span class="chip-val">Mettupalayam, India</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="hero-description">
+            Passionate second-year computer student at <strong>KG College of Arts and Science (KGCAS)</strong>, based in <strong>Mettupalayam, India</strong>. Dedicated to building reliable software applications, mastering <strong>Java & Object-Oriented Design</strong>, and creating impactful technology solutions.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <span>View Projects</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <span>Contact Me</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+            <a href="https://github.com/sajithsappu2109-debug?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" title="Open GitHub profile">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+
+          <!-- Highlighted Project Sneak Peek Box on Home -->
+          <div class="home-highlight-card">
+            <div class="highlight-header">
+              <span class="spotlight-tag">🌟 Highlighted Project</span>
+              <a href="https://github.com/sajithsappu2109-debug/Java-Capstone-Final-Project" target="_blank" rel="noopener noreferrer" class="highlight-link">
+                GitHub Repo ↗
+              </a>
+            </div>
+            <div class="highlight-body">
+              <div class="highlight-icon">💻</div>
+              <div class="highlight-text">
+                <h4>Online Quiz Examinations</h4>
+                <p>Java Capstone Project featuring automated grading, test timed sessions, and interactive assessment.</p>
+              </div>
+            </div>
+            <a href="#projects" class="highlight-action-jump">View Full Project Details & Demo ↓</a>
+          </div>
+        </div>
+
+        <!-- Hero Photo & Interactive Visual Card -->
+        <div class="hero-visual reveal-on-scroll">
+          <div class="photo-card-wrapper" id="photo-card">
+            <div class="photo-card-glow"></div>
+            <div class="photo-card-inner">
+              <div class="photo-frame">
+                <img src="assets/profile.jpg" alt="Sajith S - Second Year KGCAS Student" class="profile-photo" loading="eager">
+                <div class="photo-overlay-gradient"></div>
+              </div>
+
+              <!-- Floating Interactive Badges -->
+              <div class="floating-badge badge-top-left glass-card">
+                <span class="badge-emoji">☕</span>
+                <div class="badge-details">
+                  <span class="badge-title">Java Capstone</span>
+                  <span class="badge-sub">Final Project</span>
+                </div>
+              </div>
+
+              <div class="floating-badge badge-bottom-right glass-card">
+                <span class="badge-emoji">📍</span>
+                <div class="badge-details">
+                  <span class="badge-title">Mettupalayam</span>
+                  <span class="badge-sub">India</span>
+                </div>
+              </div>
+
+              <div class="floating-badge badge-bottom-left glass-card">
+                <span class="badge-emoji">🎓</span>
+                <div class="badge-details">
+                  <span class="badge-title">KGCAS</span>
+                  <span class="badge-sub">Second Year</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SKILLS & FOCUS SECTION ==================== -->
+    <section class="section skills-section">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">Core Knowledge</span>
+          <h2 class="section-title">Technical Skills & Focus</h2>
+          <p class="section-subtitle">Core foundations and technologies developed during academic studies and hands-on capstone development.</p>
+        </div>
+
+        <div class="skills-grid reveal-on-scroll">
+          <div class="skill-card glass-card">
+            <div class="skill-icon-wrap icon-java">☕</div>
+            <h3 class="skill-name">Java & OOP</h3>
+            <p class="skill-desc">Object-Oriented Programming, Classes, Inheritance, Polymorphism, Collections & Exception Handling.</p>
+            <div class="skill-tags">
+              <span>Core Java</span>
+              <span>OOP Concepts</span>
+              <span>Data Structures</span>
+            </div>
+          </div>
+
+          <div class="skill-card glass-card">
+            <div class="skill-icon-wrap icon-quiz">📝</div>
+            <h3 class="skill-name">App Architecture</h3>
+            <p class="skill-desc">Desktop and modular application logic, test runner systems, score calculators and validation.</p>
+            <div class="skill-tags">
+              <span>Capstone Project</span>
+              <span>Logic Flow</span>
+              <span>File/Data I/O</span>
+            </div>
+          </div>
+
+          <div class="skill-card glass-card">
+            <div class="skill-icon-wrap icon-web">🌐</div>
+            <h3 class="skill-name">Web Development</h3>
+            <p class="skill-desc">Semantic HTML5, responsive CSS3 styling, modern layouts, and interactive vanilla JavaScript.</p>
+            <div class="skill-tags">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+
+          <div class="skill-card glass-card">
+            <div class="skill-icon-wrap icon-git">🐙</div>
+            <h3 class="skill-name">Git & Version Control</h3>
+            <p class="skill-desc">Repository management, code versioning, commit histories, and open source collaboration on GitHub.</p>
+            <div class="skill-tags">
+              <span>GitHub</span>
+              <span>Git Branches</span>
+              <span>Clean Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROJECTS SECTION ==================== -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">Showcase</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">Real-world implementations and capstone software crafted with clean architecture and practical utility.</p>
+        </div>
+
+        <!-- FLAGSHIP PROJECT CARD: Online Quiz Examinations -->
+        <div class="featured-project-card glass-card reveal-on-scroll" id="flagship-project">
+          <div class="project-grid">
+            <!-- Left: Project Visual / Interactive Mockup -->
+            <div class="project-preview-pane">
+              <div class="mockup-window">
+                <div class="window-bar">
+                  <div class="window-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="window-title">Online Quiz Examinations - Java Desktop Application</div>
+                  <div class="window-badge">Java Capstone</div>
+                </div>
+                
+                <div class="mockup-body">
+                  <div class="quiz-sim-header">
+                    <div class="quiz-timer">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>Time Remaining: <strong id="sim-timer">09:42</strong></span>
+                    </div>
+                    <div class="quiz-progress-text">Question 4 of 10</div>
+                  </div>
+
+                  <div class="quiz-sim-content">
+                    <div class="sim-badge">Java OOP Assessment</div>
+                    <div class="sim-question">
+                      Which Java principle enables a child class to provide a specific implementation of a method already defined in its superclass?
+                    </div>
+
+                    <div class="sim-options">
+                      <div class="sim-option">
+                        <span class="opt-key">A</span>
+                        <span class="opt-text">Data Encapsulation</span>
+                      </div>
+                      <div class="sim-option correct">
+                        <span class="opt-key">B</span>
+                        <span class="opt-text">Method Overriding (Polymorphism)</span>
+                        <span class="opt-check">✓</span>
+                      </div>
+                      <div class="sim-option">
+                        <span class="opt-key">C</span>
+                        <span class="opt-text">Operator Overloading</span>
+                      </div>
+                      <div class="sim-option">
+                        <span class="opt-key">D</span>
+                        <span class="opt-text">Static Method Shadowing</span>
+                      </div>
+                    </div>
+
+                    <div class="sim-footer">
+                      <div class="sim-score-tag">
+                        <span class="score-icon">🏆</span> Current Score: <strong>30 / 30</strong>
+                      </div>
+                      <div class="sim-btn-sample">Next Question →</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Project Description & Actions -->
+            <div class="project-details-pane">
+              <div class="project-type-tag">
+                <span class="sparkle">✨</span> Major Milestone Project
+              </div>
+              <h3 class="project-heading">Online Quiz Examinations</h3>
+              <p class="project-subheading">Java Capstone Final Project</p>
+
+              <p class="project-narrative">
+                An end-to-end examination and automated testing platform built in Java. Designed to conduct structured academic quizzes and tests with automated score calculation, real-time timer countdown, randomized question sets, and instant validation.
+              </p>
+
+              <div class="project-features-list">
+                <div class="feature-item">
+                  <span class="feat-bullet">✓</span>
+                  <div>
+                    <strong>Interactive Exam Simulator:</strong> Conducts time-bound assessments with dynamic question transitions.
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <span class="feat-bullet">✓</span>
+                  <div>
+                    <strong>Automated Evaluation & Scoring:</strong> Immediate result breakdown upon completion with accuracy metrics.
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <span class="feat-bullet">✓</span>
+                  <div>
+                    <strong>Modular Architecture:</strong> Engineered using Object-Oriented principles for clean maintainability and scalability.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tech Pills -->
+              <div class="tech-stack-container">
+                <span class="tech-pill">Java</span>
+                <span class="tech-pill">OOP</span>
+                <span class="tech-pill">Capstone</span>
+                <span class="tech-pill">Assessment System</span>
+                <span class="tech-pill">Git / GitHub</span>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="project-btn-group">
+                <a href="https://github.com/sajithsappu2109-debug/Java-Capstone-Final-Project" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn btn-primary btn-with-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  <span>Visit on GitHub</span>
+                  <span class="external-icon">↗</span>
+                </a>
+
+                <button id="preview-modal-open" class="btn btn-secondary">
+                  <span>Interactive Walkthrough</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GITHUB REPOSITORIES INTEGRATION HUB -->
+        <div class="github-hub-card glass-card reveal-on-scroll">
+          <div class="hub-content">
+            <div class="hub-icon-col">
+              <div class="github-large-icon">
+                <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="hub-text-col">
+              <span class="hub-badge">GitHub Profile & Repositories</span>
+              <h3>Explore All Open Repositories</h3>
+              <p>Check out latest commits, codebases, academic labs, and open source exploration by <strong>@sajithsappu2109-debug</strong>.</p>
+              <div class="repo-meta-preview">
+                <span class="repo-badge">📂 Public Repositories</span>
+                <span class="repo-badge">☕ Java Codebases</span>
+                <span class="repo-badge">🚀 Continuous Learning</span>
+              </div>
+            </div>
+            <div class="hub-action-col">
+              <a href="https://github.com/sajithsappu2109-debug?tab=repositories" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-primary hub-btn">
+                <span>View All Repositories</span>
+                <span class="external-icon">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">Get In Touch</span>
+          <h2 class="section-title">Let's Connect</h2>
+          <p class="section-subtitle">Interested in collaborating, hiring for internships, or discussing projects? Reach out anytime!</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left: Contact Details & Quick Toggle Launcher -->
+          <div class="contact-card glass-card reveal-on-scroll">
+            <div class="contact-header-box">
+              <div class="gmail-brand-icon">
+                <svg viewBox="0 0 24 24" width="32" height="32">
+                  <path fill="#4285F4" d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6z" opacity=".1"/>
+                  <path fill="#EA4335" d="M20 4H4C2.9 4 2 4.9 2 6v1l10 6.5L22 7V6c0-1.1-.9-2-2-2z"/>
+                  <path fill="#4285F4" d="M2 7v11c0 1.1.9 2 2 2h4V10.5L2 7z"/>
+                  <path fill="#FBBC05" d="M22 7l-6 3.5V20h4c1.1 0 2-.9 2-2V7z"/>
+                  <path fill="#34A853" d="M8 20h8v-8.5L12 9l-4 2.5V20z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="contact-box-title">Direct Gmail Contact</h3>
+                <p class="contact-box-subtitle">Send a message directly to Sajith</p>
+              </div>
+            </div>
+
+            <!-- Gmail Toggle & Direct Action Pill -->
+            <div class="email-toggle-box">
+              <div class="email-address-display">
+                <span class="email-label">Official Email:</span>
+                <span class="email-text" id="target-email">sajithsappu21.09@gmail.com</span>
+              </div>
+
+              <!-- Action buttons for Gmail -->
+              <div class="gmail-action-buttons">
+                <!-- Copy Email Button -->
+                <button id="copy-email-btn" class="btn btn-secondary action-btn" title="Copy email address to clipboard">
+                  <svg class="copy-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span id="copy-btn-text">Copy Email</span>
+                </button>
+
+                <!-- Open in Gmail Web Button -->
+                <a id="gmail-web-btn" 
+                   href="https://mail.google.com/mail/?view=cm&fs=1&to=sajithsappu21.09@gmail.com&su=Hello%20Sajith%20-%20Portfolio%20Inquiry" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn btn-primary action-btn" 
+                   title="Compose mail directly in Gmail Web">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                  <span>Open in Gmail</span>
+                  <span class="external-icon">↗</span>
+                </a>
+
+                <!-- Open in Default Mail Client -->
+                <a href="mailto:sajithsappu21.09@gmail.com?subject=Portfolio%20Connection%20-%20Sajith%20S" 
+                   class="btn btn-ghost action-btn" 
+                   title="Open in your default mail app">
+                  <span>Default Mail App</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Quick Information Cards -->
+            <div class="info-list">
+              <div class="info-row">
+                <span class="info-icon">🏛️</span>
+                <div class="info-meta">
+                  <span class="info-label">College</span>
+                  <span class="info-value">KG College of Arts and Science (KGCAS)</span>
+                </div>
+              </div>
+              <div class="info-row">
+                <span class="info-icon">🎓</span>
+                <div class="info-meta">
+                  <span class="info-label">Status</span>
+                  <span class="info-value">Second Year Undergraduate</span>
+                </div>
+              </div>
+              <div class="info-row">
+                <span class="info-icon">📍</span>
+                <div class="info-meta">
+                  <span class="info-label">Location</span>
+                  <span class="info-value">Mettupalayam, Coimbatore Dist., India</span>
+                </div>
+              </div>
+              <div class="info-row">
+                <span class="info-icon">🐙</span>
+                <div class="info-meta">
+                  <span class="info-label">GitHub Profile</span>
+                  <a href="https://github.com/sajithsappu2109-debug" target="_blank" rel="noopener noreferrer" class="info-link">
+                    github.com/sajithsappu2109-debug ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Quick Message to Gmail Composer -->
+          <div class="contact-form-card glass-card reveal-on-scroll">
+            <h3 class="form-title">Send a Quick Message</h3>
+            <p class="form-subtitle">Type your note below. Clicking send will prepare it and open directly in your Gmail!</p>
+
+            <form id="contact-form" class="quick-form">
+              <div class="form-group">
+                <label for="sender-name">Your Name</label>
+                <input type="text" id="sender-name" placeholder="Enter your full name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="sender-subject">Subject</label>
+                <input type="text" id="sender-subject" placeholder="e.g. Project Collaboration / Inquiry" value="Collaboration Inquiry for Sajith S">
+              </div>
+
+              <div class="form-group">
+                <label for="sender-message">Message</label>
+                <textarea id="sender-message" rows="4" placeholder="Hello Sajith, I came across your portfolio and would like to connect regarding..." required></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-submit">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                  <span>Launch & Send in Gmail</span>
+                </button>
+                <button type="button" id="mailto-fallback-btn" class="btn btn-ghost">
+                  <span>Send via Default Mail</span>
+                </button>
+              </div>
+              <div id="form-feedback" class="form-feedback" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== INTERACTIVE WALKTHROUGH MODAL ==================== -->
+  <div class="modal-overlay" id="project-modal" aria-hidden="true">
+    <div class="modal-container glass-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-badge">Capstone Deep Dive</span>
+          <h3>Online Quiz Examinations System</h3>
+        </div>
+        <button id="modal-close" class="modal-close-btn" aria-label="Close modal">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section">
+          <h4>📌 Project Scope & Goal</h4>
+          <p>
+            The Online Quiz Examinations system was built to provide an automated, transparent, and user-friendly testing environment. Developed for educational evaluations, it minimizes manual grading delays and delivers dynamic test sessions.
+          </p>
+        </div>
+
+        <div class="modal-section">
+          <h4>⚙️ Key Architectural Features</h4>
+          <ul class="modal-list">
+            <li><strong>Automated Question Shuffling:</strong> Dynamically loads test questions to ensure fair testing.</li>
+            <li><strong>Session Countdown:</strong> Precise real-time timer preventing late submissions.</li>
+            <li><strong>Instant Scorecard Generator:</strong> Computes percentage, grade, and question-by-question review immediately upon test finish.</li>
+            <li><strong>Java OOP Design:</strong> Structured classes representing Questions, Exam Sessions, User Candidates, and Assessment Evaluators.</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h4>🐙 GitHub Repository</h4>
+          <p>Explore the full source code, commit history, and capstone documentation on GitHub:</p>
+          <a href="https://github.com/sajithsappu2109-debug/Java-Capstone-Final-Project" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top: 10px;">
+            <span>Visit Java Capstone Repository</span>
+            <span class="external-icon">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <a href="#home" class="footer-logo">
+          <span class="logo-symbol">&lt;</span>
+          <span class="logo-text">Sajith<span class="logo-accent">.S</span></span>
+          <span class="logo-symbol">/&gt;</span>
+        </a>
+        <p class="footer-tagline">Second Year Student at KGCAS • Mettupalayam, India</p>
+      </div>
+
+      <div class="footer-nav">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/sajithsappu2109-debug?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub Repos</a>
+      </div>
+
+      <div class="footer-right">
+        <p class="copyright">© 2026 Sajith S. Designed with precision & pure HTML/CSS/JS.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
